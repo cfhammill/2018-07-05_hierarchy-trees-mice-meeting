@@ -356,9 +356,67 @@ class: center
 knitr::include_graphics("hippocampal_tree_hierarchical.svg")
 ```
 
-## The effect diffusion tree
+---
+
+# The effect diffusion tree
 
 - This model cannot be specified in `rstanarm` or `brms`
 - custom model implemented in stan
 - Effects at children are gaussian draws centered at their parents,
   diffuse down the tree.
+- Effects at child structures shrink toward their parent
+
+---
+
+# So how does it do?
+
+- Glib answer: slower. Mostly due to not being optimized.
+- Serious answer: this is a subtle questions.
+
+---
+
+# How do we evaluate model performance?
+
+- Do we care about long run behaviour?
+  - Evaluate predictive performance
+  - Compare stability across replication datasets
+- Do we know the true answer?
+  - Compare against ground truth
+  - Assess power
+  
+Disclaimer: so far I have only simulated a handful of simple cases
+
+---
+
+# Predictive Performance
+
+Comparing (approximate) leave-one-out cross-validation shows
+the horizontal and diffusion tree priors performing identically.
+This suggests the data is strong enough to override the prior
+on overall model fit in both cases.
+
+---
+
+# Against ground truth
+
+- The diffusion tree has slightly superior simulated effect recapture. 
+- The diffusion tree has broader posterior distributions, it is less
+  certain of its answers.
+  
+Seems to be a trade-off between certainty and recapture. 
+
+---
+
+# To Do
+
+- Compare replication data sets. Fit both models against
+  two or more studies that estimate a common effect. Compare
+  how similar the results are across the data sets.
+- Assess power
+
+---
+
+# Assessing Power
+
+- Hypothesis testing in a bayesian context is slightly different
+- We can make hypothesis 
