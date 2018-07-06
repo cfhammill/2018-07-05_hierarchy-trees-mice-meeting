@@ -209,6 +209,17 @@ thought they were before</font> adjusted by <font color="blue">how well they agr
 ![](posterior.gif)
 
 ---
+
+# Why is this great?
+
+- Posterior distributions are much easier to work with than asymptotic distributions
+  in frequentist statistics
+- Easy to compute posterior weighted averages
+- If I have posterior samples for group 1 and group 2, I can generate posterior
+  distributions for the sum, difference, or product of the two groups.
+- Can do interesting things like posterior weighted costs.
+
+---
 class: center
 
 # Learning Bayesian Statistics
@@ -262,7 +273,7 @@ where
 1. $\color{CadetBlue}{\alpha}$ is our intercept
 1. $x_i$ is our model matrix (a 1-column matrix with genotype = 0 or 1)
 1. $\color{LimeGreen}{\beta}$ is our genotype effect
-1. $Z_i$ is a vector with (1 for the intercept, and the subjects genotype)
+1. $Z_i$ is a vector with (1 for the intercept, and the subject's genotype)
 1. $\color{orange}{b_s}$ is vector of the the random effects of both genotype and 
    intercept at structure s.
 1. $\epsilon$ is our residual.
@@ -423,7 +434,7 @@ knitr::include_graphics("hippocampal_tree_hierarchical.svg")
 # So how does it do?
 
 - Glib answer: slower. Mostly due to not being optimized.
-- Serious answer: this is a subtle questions.
+- Serious answer: this is a subtle question.
 
 ---
 
